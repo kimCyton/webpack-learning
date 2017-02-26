@@ -17,6 +17,9 @@ module.exports = {
 				presets: ['latest']
 			}
 		}, {
+			test: /\.html$/,
+			loader: 'html-loader'
+		}, {
 			test: /\.css$/,
 			loader: 'style-loader!css-loader!postcss-loader'
 				//	↓ postcss 于同目录下配置postcss.config.js文件	↓
@@ -28,17 +31,17 @@ module.exports = {
 		}, {
 			test: /\.scss$/,
 			use: [{
-				loader: "style-loader" // creates style nodes from JS strings
-			}, {
-				loader: "css-loader" // translates CSS into CommonJS
-			}, {
-				loader: "postcss-loader"
-			}, {
-				loader: "sass-loader" // compiles Sass to CSS
-			}]//处理从右往左
-		},{
-			test:/\.(png|jpg|gif|svg)$/i,
-			loaders:[
+					loader: "style-loader" // creates style nodes from JS strings
+				}, {
+					loader: "css-loader" // translates CSS into CommonJS
+				}, {
+					loader: "postcss-loader"
+				}, {
+					loader: "sass-loader" // compiles Sass to CSS
+				}] //处理从右往左
+		}, {
+			test: /\.(png|jpg|gif|svg)$/i,
+			loaders: [
 				'url-loader?limit=1000&name=assets/[name]-[hash:5].[ext]',
 				'image-webpack-loader'
 			],
