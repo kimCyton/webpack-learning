@@ -38,7 +38,11 @@ module.exports = {
 			}]
 		},{
 			test:/\.(png|jpg|gif|svg)$/i,
-			loader:'file-loader'
+			loader:'url-loader',
+			query:{
+				limit:20000,
+				name:'assets/[name]-[hash:5].[ext]'
+			}
 		}]
 	},
 	plugins: [
