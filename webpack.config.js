@@ -35,14 +35,13 @@ module.exports = {
 				loader: "postcss-loader"
 			}, {
 				loader: "sass-loader" // compiles Sass to CSS
-			}]
+			}]//处理从右往左
 		},{
 			test:/\.(png|jpg|gif|svg)$/i,
-			loader:'url-loader',
-			query:{
-				limit:20000,
-				name:'assets/[name]-[hash:5].[ext]'
-			}
+			loaders:[
+				'url-loader?limit=1000&name=assets/[name]-[hash:5].[ext]',
+				'image-webpack-loader'
+			],
 		}]
 	},
 	plugins: [
